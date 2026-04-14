@@ -1,0 +1,39 @@
+name: omega-media-communications
+region: lon
+static_sites:
+  - name: omega-website
+    environment_slug: html
+    source_dir: /
+    build_command: npm ci && npm run build
+    output_dir: dist
+    index_document: index.html
+    catchall_document: index.html
+    github:
+      repo: your-github-username/omega-media-site
+      branch: main
+      deploy_on_push: false
+    envs:
+      - key: VITE_CONTACT_EMAIL
+        scope: BUILD_TIME
+        type: GENERAL
+        value: hello@omegamediacommunications.com
+      - key: VITE_PHONE_DISPLAY
+        scope: BUILD_TIME
+        type: GENERAL
+        value: +234 XXX XXX XXXX
+      - key: VITE_WHATSAPP_NUMBER
+        scope: BUILD_TIME
+        type: GENERAL
+        value: 2340000000000
+      - key: VITE_FORMSPREE_ENDPOINT
+        scope: BUILD_TIME
+        type: SECRET
+        value: REPLACE_WITH_FORMSPREE_ENDPOINT
+      - key: VITE_INSTAGRAM_URL
+        scope: BUILD_TIME
+        type: GENERAL
+        value: https://www.instagram.com/
+      - key: VITE_FACEBOOK_URL
+        scope: BUILD_TIME
+        type: GENERAL
+        value: https://www.facebook.com/
